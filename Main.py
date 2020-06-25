@@ -92,7 +92,7 @@ class Main:
             return self.loadout
   
     def out_frame(self):
-        self.mainframe = LabelFrame(root, width=383, height=243, relief='solid')
+        self.mainframe = LabelFrame(root, width=384, height=244, relief='solid')
         self.mainframe.grid_propagate(0)
         self.mainframe.grid(row=3, column=1, rowspan=5, columnspan=3)
         self.at_frame()
@@ -206,7 +206,7 @@ class Main:
         label_tactical.grid(row=2, column=1, padx=(2,0))
 
         #Randomize Tactical Button
-        random_tactical = Button(root, font=5, text="Randomize tactical", width=20, height=1, command=onclick_tacticals, bg='DodgerBlue3', fg='#FFFFFF', relief='flat', highlightthickness= 0)
+        random_tactical = Button(root, font=5, text="Randomize Tactical", width=20, height=1, command=onclick_tacticals, bg='DodgerBlue3', fg='#FFFFFF', relief='flat', highlightthickness= 0)
         random_tactical.grid(row=6, column=0, padx=(10, 0))
 
         return onclick_tacticals()
