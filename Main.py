@@ -20,12 +20,16 @@ class Main:
         root.title("CoD Loadout: Randomizer")
         root.resizable(0,0)
         root.configure(bg='gray12')
-        root.geometry("660x320")
+        root.geometry("668x480")
+
+
+        load = Image.open('banner.png').resize((665, 150), Image.ANTIALIAS)
+        render = ImageTk.PhotoImage(load)
+        banner = Label(root, image=render, relief='flat', bg='gray12')
+        banner.image = render
+        banner.grid(row=0, columnspan=5, pady=(0, 10))
 
         #all frames are called here
-        """render = ImageTk.PhotoImage(Image.open('banner.png'))
-        banner = Label(image=render)
-        banner.grid(row=0, columnspan=4)"""
         self.combotypes()
         self.comboguns()
         self.out_frame()
@@ -77,7 +81,7 @@ class Main:
         guns['value'] = list(gun for gun in weapons)
         guns.current(0)
         guns.bind("<<ComboboxSelected>>", callback)
-        guns.grid(row=2, column=3, pady=(0,30))
+        guns.grid(row=2, column=3, padx=(0,10), pady=(0,30))
 
     def get_loadout(self):
         """
@@ -115,7 +119,7 @@ class Main:
             attach = Label(frame, text=self.get_loadout().a_randomize(), bg='gray21', fg='#FFFFFF')
             attach.place(x=90, y=70, anchor='center')
         #Label
-        label_attach = Label(frame, font=('Fixedsys', 10), text="Use these attachments: ", bg='gray21', fg='peach puff')
+        label_attach = Label(frame, font=('Fixedsys', 5), text="Use these attachments: ", bg='gray21', fg='peach puff')
         label_attach.grid(row=2, column=1, padx=(3, 0))
 
         #Randomize Attachment Button
@@ -142,7 +146,7 @@ class Main:
             perk = Label(frame, text=self.get_loadout().p_randomize(), bg='gray21', fg='#FFFFFF')
             perk.place(x=90, y=70, anchor='center')
         #Label
-        label_perk = Label(frame, font=('Fixedsys', 10), text="   Use these perks: ", bg='gray21', fg='peach puff')
+        label_perk = Label(frame, font=('Fixedsys', 5), text="   Use these perks: ", bg='gray21', fg='peach puff')
         label_perk.grid(row=2, column=1)
 
         #Randomize Perk Button
@@ -169,7 +173,7 @@ class Main:
             lethal.place(x=90, y=50, anchor='center')
 
         #Label
-        label_lethal = Label(frame, font=('Fixedsys', 10), text=" Use this for lethal: ", bg='gray21', fg='peach puff')
+        label_lethal = Label(frame, font=('Fixedsys', 5), text=" Use this for lethal: ", bg='gray21', fg='peach puff')
         label_lethal.grid(row=2, column=1)
         
         #Randomize Lethal Button
@@ -198,8 +202,8 @@ class Main:
             tactical.place(x=90, y=50, anchor='center')
 
         #Label
-        label_tactical = Label(frame, font=('Fixedsys', 10), text="Use this for tactical:", bg='gray21', fg='peach puff')
-        label_tactical.grid(row=2, column=1)
+        label_tactical = Label(frame, font=('Fixedsys', 5), text="Use this for tactical:", bg='gray21', fg='peach puff')
+        label_tactical.grid(row=2, column=1, padx=(2,0))
 
         #Randomize Tactical Button
         random_tactical = Button(root, font=5, text="Randomize tactical", width=20, height=1, command=onclick_tacticals, bg='DodgerBlue3', fg='#FFFFFF', relief='flat', highlightthickness= 0)
@@ -213,7 +217,7 @@ class Main:
         """
 
         #Randomize All Button
-        random_all = Button(root, font=5, text="Randomize All", command=lambda:[self.at_frame(), self.perk_frame(), self.lethal_frame(), self.tactical_frame()], width=20, height=1, bg='red', fg='#FFFFFF', relief='flat', highlightthickness= 0)
+        random_all = Button(root, font=5, text="Randomize All", command=lambda:[self.at_frame(), self.perk_frame(), self.lethal_frame(), self.tactical_frame()], width=20, height=1, bg='orangered3', fg='#FFFFFF', relief='flat', highlightthickness= 0)
         random_all.grid(row=7, column=0, padx=(10, 0))
 
 output = Main(root)
