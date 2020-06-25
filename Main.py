@@ -64,7 +64,7 @@ class Main:
         Dropdown menu for choosing your weapon
 
         """
-        def callback():
+        def callback(event):
             Main.destroy_all()
             event.widget.get()
 
