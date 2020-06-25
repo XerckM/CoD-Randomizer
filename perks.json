@@ -1,0 +1,13 @@
+{
+    "Perks":
+    [
+        {
+            "Blue": ["Double Time", "E.O.D.", "Scavenger", "Kill Chain", "Quick Fix"],
+
+            "Red": ["Restock", "Hardline", "Overkill", "High Alert", "Ghost", "Pointman"],
+
+            "Yellow": ["Tune Up", "Amped", "Shrapnel", "Battle Hardened", "Spotter", "Tracker"]
+
+        }
+    ]
+}

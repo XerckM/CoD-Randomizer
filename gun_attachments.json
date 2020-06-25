@@ -1,0 +1,218 @@
+{
+    "M4A1": [
+        {
+            "Muzzle": [
+                "",
+                "Flash Guard", 
+                "Breacher Device", 
+                "Tactical Suppressor", 
+                "Muzzle Brake", 
+                "Lightweight Suppressor", 
+                "Compensator", 
+                "Monolithic Suppressor"
+            ],
+
+            "Barrel": [
+                "",
+                "FSS 11.5 Commando", 
+                "Stock M16 Grenadier", 
+                "FSS 14.5 Tac Lite", 
+                "Corvus Custom Marksman", 
+                "FSS 12.4 Predator"
+            ],
+
+            "Laser": [
+                "",
+                "1mW Laser",
+                "5mW Laser",
+                "Tac Laser"
+            ], 
+
+            "Optic": [
+                "",
+                "Cronen LP945 Mini Reflex", 
+                "Corp Combat Holo Sight", 
+                "Operator Reflex Sight", 
+                "Scout Combat Optic", 
+                "4.0 Flip Hybrid", 
+                "Aim-Op Reflex Sight", 
+                "APX5 Holographic Sight", 
+                "Integral Hybrid", 
+                "Solozero NVG Enhanced", 
+                "VLK 3.0x Optic", 
+                "Sniper Scope", 
+                "Viper Reflex Sight", 
+                "G.I. Mini Reflex", 
+                "PBX Holo 7 Sight", 
+                "Cronen C480 Pro Optic", 
+                "Monocle Reflex Sight", 
+                "Variable Zoom Scope", 
+                "Canted Hybrid", 
+                "Merc Thermal Optic", 
+                "Thermal Hybrid"
+            ],  
+                
+            "Stock": [
+                "",
+                "M-16 Stock", 
+                "Singuard Arms Invader", 
+                "No Stock", 
+                "FORGE TAC CQS"
+            ],
+
+            "Grip": [
+                "",
+                "Granulated Grip Tape", 
+                "Rubberized Grip Tape", 
+                "Stippled Grip Tape"
+            ],
+
+            "Ammunition": [
+                "",
+                "50 Round Mags", 
+                "60 Round Mags", 
+                "9mm Para 32-Round Mags", 
+                ".458 SOCOM 10-Round Mags"
+            ],
+
+            "Underbarrel": [
+                "",
+                "Commando Foregrip", 
+                "M203 40mm High-explosive", 
+                "M203 40mm Incendiary", 
+                "12 Gauge Deputy", 
+                "Merc Foregrip ",
+                "M203 40mm Smokescreen", 
+                "Tactical Foregrip", 
+                "M203 40mm Recon", 
+                "Bipod", 
+                "M203 40mm Flash", 
+                "Ranger Foregrip ", 
+                "M203 40mm Concussive", 
+                "Operator Foregrip"
+            ],  
+
+            "Perk": [
+                "",
+                "FMJ", 
+                "Sleight of Hand", 
+                "Frangible - Wounding", 
+                "Heavy Hitter", 
+                "Fully Loaded", 
+                "Burst", 
+                "Recon", 
+                "Mo' Money", 
+                "Fast Melee", 
+                "Frangible - Disabling", 
+                "Presence of Mind"
+            ]
+        }
+    ],
+    "M13": [
+        {
+            "Muzzle": [
+                "",
+                "Tactical Suppressor",
+                "Flash Guard",
+                "Muzzle Brake",
+                "Breacher Device",
+                "Lightweight Suppressor",
+                "Compensator",
+                "Monolithic Suppressor"
+            ],
+
+            "Barrel": [
+                "",
+                "Tempus Mini",
+                "Tempus Cyclone",
+                "Tempus Marksman"
+            ],
+
+            "Laser": [
+                "",
+                "1mW Laser",
+                "Tac Laser",
+                "5mW Laser"
+            ], 
+
+            "Optic": [
+                "",
+                "Solozero Optics Mini Reflex",
+                "Aim-Op Reflex Sight",
+                "Corp Combat Holo Sight",
+                "Scout Combat Optic",
+                "Operator Reflex Sight",
+                "4.0 Flip Hybrid",
+                "APX5 Holographic Sight",
+                "Integral Hybrid",
+                "G.I. Mini Reflex",
+                "VLK 3.0x Optic",
+                "Cronen LP945 Mini Reflex",
+                "Viper Reflex Sight",
+                "Sniper Scope",
+                "Solozero NVG Enhanced",
+                "Monocle Reflex Sight",
+                "Cronen C480 Pro Optic",
+                "Merc Thermal Optic",
+                "Canted Hybrid",
+                "PBX Holo 7 Sight",
+                "Thermal Hybrid",
+                "Variable Zoom Scope"
+            ],  
+                
+            "Stock": [
+                "",
+                "FORGE TAC Stalker",
+                "No Stock",
+                "FSS Close Quarters Stock",
+                "M13 Skeleton Stock"
+            ],
+
+            "Grip": [
+                "",
+                "Granulated Grip Tape ",
+                "Stippled Grip Tape",
+                "Rubberized Grip Tape "
+            ],
+
+            "Ammunition": [
+                "",
+                "50 Round Mags",
+                ".300 Blackout 30-Round Mags",
+                "60 Round Mags"
+            ],
+
+            "Underbarrel": [
+                "",
+                "Merc Foregrip",
+                "M203 40mm Smokescreen",
+                "Commando Foregrip",
+                "M203 40mm Incendiary",
+                "M203 40mm Flash",
+                "Bipod",
+                "M203 40mm High-explosive",
+                "Tactical Foregrip",
+                "M203 40mm Concussive",
+                "Ranger Foregrip",
+                "M203 40mm Recon",
+                "Operator Foregrip",
+                "12 Gauge Deputy"
+            ],  
+
+            "Perk": [
+                "",
+                "Heavy Hitter",
+                "Frangible - Wounding",
+                "Fully Loaded",
+                "Sleight of Hand",
+                "Burst",
+                "Mo' Money",
+                "Fast Melee",
+                "Frangible - Disabling",
+                "Recon",
+                "FMJ",
+                "Presence of Mind"
+            ]
+        }
+    ]
+}
