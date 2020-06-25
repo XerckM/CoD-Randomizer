@@ -146,8 +146,8 @@ class Main:
             perk = Label(frame, text=self.get_loadout().p_randomize(), bg='gray21', fg='#FFFFFF')
             perk.place(x=90, y=70, anchor='center')
         #Label
-        label_perk = Label(frame, font=('Fixedsys', 5), text="   Use these perks: ", bg='gray21', fg='peach puff')
-        label_perk.grid(row=2, column=1)
+        label_perk = Label(frame, font=('Fixedsys', 5), text="Use these perks: ", bg='gray21', fg='peach puff')
+        label_perk.grid(row=2, column=1, padx=(25,0))
 
         #Randomize Perk Button
         random_perk = Button(root, font=5, text="Randomize Perks", width=20, height=1, command=onclick_perks, bg='DodgerBlue3', fg='#FFFFFF', relief='flat', highlightthickness= 0)
