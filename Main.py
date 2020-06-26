@@ -103,6 +103,7 @@ class Main:
             tactical.place(x=279, y=190, anchor=CENTER)
             return tactical
 
+        # On Hover Button Events
         def on_hover_a(event):
             random_attachment_button['background'] = 'burlywood3'
         def off_hover_a(event):
@@ -124,7 +125,7 @@ class Main:
         def off_hover_e(event):
             random_all_button['background'] = 'orangered4'
             
-        #Labels
+        # Output Titles
         label_attach = Label(self.mainframe, font=('Fixedsys', 4), text="Use these attachments:", bg='gray21', fg='peach puff')
         label_attach.grid(row=1, column=1, padx=(10,0), pady=(10,100))
         label_perk = Label(self.mainframe, font=('Fixedsys', 4), text="Use these perks:", bg='gray21', fg='peach puff')
@@ -134,27 +135,35 @@ class Main:
         label_tactical = Label(self.mainframe, font=('Fixedsys', 4), text="Use this for tactical:", bg='gray21', fg='peach puff')
         label_tactical.grid(row=2, column=2)
 
-        #Buttons
+        # Randomize Attachment Button
         random_attachment_button = Button(self.buttonframe, bg='burlywood4', font=5, text="Randomize Attachments", width=20, height=2, \
             command=onclick_attachments, fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
         random_attachment_button.bind('<Enter>', on_hover_a)
         random_attachment_button.bind('<Leave>', off_hover_a)
         random_attachment_button.grid(row=3, column=0, padx=(10, 0))
+
+        # Randomize Perk Button
         random_perk_button = Button(self.buttonframe, font=5, text="Randomize Perks", width=20, height=2, \
             command=onclick_perks, bg='burlywood4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
         random_perk_button.bind('<Enter>', on_hover_b)
         random_perk_button.bind('<Leave>', off_hover_b)
         random_perk_button.grid(row=4, column=0, padx=(10, 0))
+
+        # Randomize Lethal Button
         random_lethal_button = Button(self.buttonframe, font=5, text="Randomize Lethal", width=20, height=2, \
             command=onclick_lethals, bg='burlywood4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
         random_lethal_button.bind('<Enter>', on_hover_c)
         random_lethal_button.bind('<Leave>', off_hover_c)
         random_lethal_button.grid(row=5, column=0, padx=(10, 0))
+
+        # Randomize Tactical Button
         random_tactical_button = Button(self.buttonframe, font=5, text="Randomize Tactical", width=20, height=2, \
             command=onclick_tacticals, bg='burlywood4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
         random_tactical_button.bind('<Enter>', on_hover_d)
         random_tactical_button.bind('<Leave>', off_hover_d)
         random_tactical_button.grid(row=6, column=0, padx=(10, 0))
+
+        # Randomize All Button
         random_all_button = Button(self.buttonframe, font=5, text="Randomize All", width=20, height=2, \
             command=lambda:[onclick_attachments(), onclick_perks(), onclick_lethals(), onclick_tacticals()], \
                 bg='darkorange4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='orangered4', activeforeground='#FFFFFF')
