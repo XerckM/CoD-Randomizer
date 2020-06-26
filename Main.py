@@ -136,8 +136,8 @@ class Main:
         label_tactical.grid(row=2, column=2)
 
         # Randomize Attachment Button
-        random_attachment_button = Button(self.buttonframe, bg='burlywood4', font=5, text="Randomize Attachments", width=20, height=2, \
-            command=onclick_attachments, fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
+        random_attachment_button = Button(self.buttonframe, bg='burlywood4', fg='#FFFFFF', font=5, text="Randomize Attachments", width=20, height=2, \
+            command=onclick_attachments, relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
         random_attachment_button.bind('<Enter>', on_hover_a)
         random_attachment_button.bind('<Leave>', off_hover_a)
         random_attachment_button.grid(row=3, column=0, padx=(10, 0))
@@ -166,7 +166,7 @@ class Main:
         # Randomize All Button
         random_all_button = Button(self.buttonframe, font=5, text="Randomize All", width=20, height=2, \
             command=lambda:[onclick_attachments(), onclick_perks(), onclick_lethals(), onclick_tacticals()], \
-                bg='darkorange4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='orangered4', activeforeground='#FFFFFF')
+                bg='orangered4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='#621b00', activeforeground='#FFFFFF')
         random_all_button.bind('<Enter>', on_hover_e)
         random_all_button.bind('<Leave>', off_hover_e)
         random_all_button.grid(row=7, column=0, padx=(10, 0))
