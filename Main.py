@@ -47,8 +47,8 @@ class Main:
         tactical.destroy()
 
     def get_loadout(self):
-        self.loadout = Randomizer(self.select.get(), self.selection.get(), 'Perks', 'Lethals', 'Tacticals')
-        return self.loadout
+        loadout = Randomizer(self.select.get(), self.selection.get(), 'Perks', 'Lethals', 'Tacticals')
+        return loadout
   
     def output_frame(self):
         """
@@ -190,7 +190,7 @@ class Main:
         def callback_type(event):
             Main.destroy_all()
             update_box = list(gun for gun in weapons[self.select.get()][0])
-            self.guns.config(state=READABLE, value=update_box)
+            self.guns.config(state='readonly', value=update_box)
             self.guns.set('----Select Gun----')
             self.random_attachment_button.configure(state=DISABLED)
             self.random_perk_button.configure(state=DISABLED)
@@ -200,6 +200,8 @@ class Main:
             if self.do_blink is True:
                 self.blink_wep_label()
                 self.do_blink = False
+                self.no_blink = True
+
 
         def callback_weapon(event):
             Main.destroy_all()
@@ -211,6 +213,7 @@ class Main:
             self.do_blink = True
         
         self.do_blink = True
+        self.no_blink = False
         self.select = StringVar()
         self.type_label = Label(root, font=('Fixedsys', 15), text="Choose the weapon type:", background='gray12', foreground='peach puff')
         self.type_label.grid(row=2, column=0, pady=(0,30))
@@ -223,13 +226,13 @@ class Main:
         self.selection = StringVar()
         self.wep_label = Label(root, font=('Fixedsys', 15), text="Choose your weapon:", bg='gray12', fg='peach puff')
         self.wep_label.grid(row=2, column=2, padx=(10, 0), pady=(0,30))
-        self.guns = ttk.Combobox(root, width=15, textvariable=self.selection, state=DISABLED)
+        self.guns = ttk.Combobox(root, width=15, textvariable=self.selection, state='disabled')
         self.guns.set('---Unavailable---')
         self.guns.bind("<<ComboboxSelected>>", callback_weapon)
         self.guns.grid(row=2, column=3, padx=(0,10), pady=(0,30))
 
     def blink_type_label(self):
-        if self.guns['state'] == READABLE:
+        if self.no_blink is True:
             self.type_label.after_cancel(self.blink_type_label)
             self.type_label.configure(background='gray12', foreground='peach puff')
         else:
@@ -239,7 +242,7 @@ class Main:
             self.type_label.after(350, self.blink_type_label)
 
     def blink_wep_label(self):
-        if self.random_attachment_button['state'] == DISABLED:
+        if self.random_all_button['state'] == DISABLED:
             bg = self.wep_label.cget("background")
             fg = self.wep_label.cget("foreground")
             self.wep_label.configure(background=fg, foreground=bg)
