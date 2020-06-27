@@ -41,7 +41,6 @@ class Main:
         """
         This method cleans up the output frame
         """
-
         attach.destroy()
         perk.destroy()
         lethal.destroy()
@@ -59,7 +58,6 @@ class Main:
         This is also where the buttons are placed and the command methods that
         are being called so they all are in the same function
         """
-
         self.mainframe = LabelFrame(root, width=385, height=230, bg='gray21', relief='solid')
         self.mainframe.grid_propagate(0)
         self.mainframe.grid(row=3, column=1, rowspan=5, columnspan=3)
@@ -189,7 +187,6 @@ class Main:
         Dropdown menu for choosing your weapon tyoe
 
         """
-
         def callback_type(event):
             Main.destroy_all()
             update_box = list(gun for gun in weapons[self.select.get()][0])
@@ -246,8 +243,6 @@ class Main:
             fg = self.wep_label.cget("foreground")
             self.wep_label.configure(background=fg, foreground=bg)
             self.wep_label.after(350, self.blink_wep_label)
-
-
 
 Main(root)
 root.mainloop()
