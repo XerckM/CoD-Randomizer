@@ -4,8 +4,6 @@ from PIL import Image, ImageTk
 from Randomizer import Randomizer
 import json
 
-with open('gun_attachments.json') as w:
-    weapons = json.load(w)
 root = Tk()
 
 #initial Labels to be destroyed
@@ -13,6 +11,9 @@ attach = Label(root)
 perk = Label(root)
 lethal = Label(root)
 tactical = Label(root)
+
+with open('gun_attachments.json') as w:
+    weapons = json.load(w)
 
 class Main:
     def __init__(self, root):
@@ -30,8 +31,8 @@ class Main:
         banner.grid(row=0, columnspan=5, pady=(0, 10))
 
         # All of the methods are called here
-        self.combobox()
         self.output_frame()
+        self.combobox()
         Main.destroy_all()
     
     @staticmethod
@@ -191,13 +192,14 @@ class Main:
         def callback_type(event):
             Main.destroy_all()
             update_box = list(gun for gun in weapons[self.select.get()][0])
-            self.guns.config(state='readonly', value=update_box)
+            self.guns.config(state=READABLE, value=update_box)
             self.guns.set('----Select Gun----')
             self.random_attachment_button.configure(state=DISABLED)
             self.random_perk_button.configure(state=DISABLED)
             self.random_lethal_button.configure(state=DISABLED)
             self.random_tactical_button.configure(state=DISABLED)
             self.random_all_button.configure(state=DISABLED)
+            self.blink()
 
         def callback_weapon(event):
             Main.destroy_all()
@@ -208,8 +210,8 @@ class Main:
             self.random_all_button.configure(state=NORMAL)
 
         self.select = StringVar()
-        label = Label(root, font=('Fixedsys', 15), text="Choose the weapon type: ", bg='gray12', fg='peach puff')
-        label.grid(row=2, column=0, pady=(0,30))
+        self.type_label = Label(root, font=('Fixedsys', 15), text="Choose the weapon type:", background='gray12', foreground='peach puff')
+        self.type_label.grid(row=2, column=0, pady=(0,30))
         self.gun_types = ttk.Combobox(root, width=21, textvariable=self.select, state='readonly')
         self.gun_types['value'] = list(item for item in weapons)
         self.gun_types.set('--Select Weapon Type--')
@@ -217,12 +219,32 @@ class Main:
         self.gun_types.grid(row=2, column=1, pady=(0,30))
 
         self.selection = StringVar()
-        label = Label(root, font=('Fixedsys', 15), text="Choose your weapon: ", bg='gray12', fg='peach puff')
-        label.grid(row=2, column=2, padx=(10, 0), pady=(0,30))
-        self.guns = ttk.Combobox(root, width=15, textvariable=self.selection, state='disabled')
+        self.wep_label = Label(root, font=('Fixedsys', 15), text="Choose your weapon:", bg='gray12', fg='peach puff')
+        self.wep_label.grid(row=2, column=2, padx=(10, 0), pady=(0,30))
+        self.guns = ttk.Combobox(root, width=15, textvariable=self.selection, state=DISABLED)
         self.guns.set('---Unavailable---')
         self.guns.bind("<<ComboboxSelected>>", callback_weapon)
         self.guns.grid(row=2, column=3, padx=(0,10), pady=(0,30))
 
-output = Main(root)
+        self.blink()
+
+    def blink(self):
+        wep_bg = self.wep_label.cget("background")
+        wep_fg = self.wep_label.cget("foreground")
+        if self.random_all_button['state'] == NORMAL:
+            self.wep_label.after_cancel(self.blink)
+            self.wep_label.configure(background='gray12', foreground='peach puff')
+        elif self.guns['state'] == READABLE:
+            self.type_label.after_cancel(self.blink)
+            self.type_label.configure(background='gray12', foreground='peach puff')
+            self.wep_label.configure(background=wep_fg, foreground=wep_bg)
+            self.wep_label.after(350, self.blink)
+        else:
+            type_bg = self.type_label.cget("background")
+            type_fg = self.type_label.cget("foreground")
+            self.type_label.configure(background=type_fg, foreground=type_bg)
+            self.type_label.after(350, self.blink)
+
+
+Main(root)
 root.mainloop()
