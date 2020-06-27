@@ -2,7 +2,8 @@ import random
 import json
 
 class Randomizer:
-    def __init__(self, weapon, perk, lethal, tactical): 
+    def __init__(self, guntype, weapon, perk, lethal, tactical):
+        self.guntype = guntype
         self.weapon = weapon
         self.perk = perk
         self.lethal = lethal
@@ -13,17 +14,17 @@ class Randomizer:
             weapons = json.load(w)
         with open('nomuzzle.txt', 'r') as nm:
             barrel_no_muzzle = list(i for i in nm)
-        att_types = list(item for item in weapons[self.weapon][0])
+        att_types = list(item for item in weapons[self.guntype][0][self.weapon][0])
         rand_att_types = random.sample(att_types, 5)
-        first = random.choice(list(item for item in weapons[self.weapon][0][rand_att_types[0]]))
-        second = random.choice(list(item for item in weapons[self.weapon][0][rand_att_types[1]]))
-        third = random.choice(list(item for item in weapons[self.weapon][0][rand_att_types[2]]))
-        fourth = random.choice(list(item for item in weapons[self.weapon][0][rand_att_types[3]]))
-        fifth = random.choice(list(item for item in weapons[self.weapon][0][rand_att_types[4]]))
+        first = random.choice(list(item for item in weapons[self.guntype][0][self.weapon][0][rand_att_types[0]]))
+        second = random.choice(list(item for item in weapons[self.guntype][0][self.weapon][0][rand_att_types[1]]))
+        third = random.choice(list(item for item in weapons[self.guntype][0][self.weapon][0][rand_att_types[2]]))
+        fourth = random.choice(list(item for item in weapons[self.guntype][0][self.weapon][0][rand_att_types[3]]))
+        fifth = random.choice(list(item for item in weapons[self.guntype][0][self.weapon][0][rand_att_types[4]]))
         rand_picks = [first, second, third, fourth, fifth]
         rand_picks[:] = [item for item in rand_picks if item != '']
         is_barrel_no_muzzle = any(item in barrel_no_muzzle for item in rand_picks)
-        is_muzzle_in_picks = any(item in rand_picks for item in weapons[self.weapon][0]['Muzzle'])
+        is_muzzle_in_picks = any(item in rand_picks for item in weapons[self.guntype][0][self.weapon][0]['Muzzle'])
         if is_barrel_no_muzzle is True:
             if is_muzzle_in_picks is True:
                 return self.a_randomize()

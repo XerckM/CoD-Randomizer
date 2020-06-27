@@ -30,8 +30,7 @@ class Main:
         banner.grid(row=0, columnspan=5, pady=(0, 10))
 
         # All of the methods are called here
-        self.combotypes()
-        self.comboguns()
+        self.combobox()
         self.output_frame()
         Main.destroy_all()
     
@@ -47,16 +46,8 @@ class Main:
         tactical.destroy()
 
     def get_loadout(self):
-        """
-        This function returns the class that gets randomized
-
-        The if statement is not necessary but is added just incase there are any weapons
-        not in the list
-        """
-
-        if self.selection.get() in weapons:
-            self.loadout = Randomizer(self.selection.get(), 'Perks', 'Lethals', 'Tacticals')
-            return self.loadout
+        self.loadout = Randomizer(self.select.get(), self.selection.get(), 'Perks', 'Lethals', 'Tacticals')
+        return self.loadout
   
     def output_frame(self):
         """
@@ -105,25 +96,35 @@ class Main:
 
         # On Hover Button Events
         def on_hover_a(event):
-            random_attachment_button['background'] = 'burlywood3'
+            if self.random_attachment_button['state'] == NORMAL:
+                self.random_attachment_button['background'] = 'burlywood3'
         def off_hover_a(event):
-            random_attachment_button['background'] = 'burlywood4'
+            if self.random_attachment_button['state'] == NORMAL:
+                self.random_attachment_button['background'] = 'burlywood4'
         def on_hover_b(event):
-             random_perk_button['background'] = 'burlywood3'
+            if self.random_perk_button['state'] == NORMAL:
+                self.random_perk_button['background'] = 'burlywood3'
         def off_hover_b(event):
-            random_perk_button['background'] = 'burlywood4'
+            if self.random_perk_button['state'] == NORMAL:
+                self.random_perk_button['background'] = 'burlywood4'
         def on_hover_c(event):
-            random_lethal_button['background'] = 'burlywood3'
+            if self.random_lethal_button['state'] == NORMAL:
+                self.random_lethal_button['background'] = 'burlywood3'
         def off_hover_c(event):
-            random_lethal_button['background'] = 'burlywood4'
+            if self.random_lethal_button['state'] == NORMAL:
+                self.random_lethal_button['background'] = 'burlywood4'
         def on_hover_d(event):
-            random_tactical_button['background'] = 'burlywood3'
+            if self.random_tactical_button['state'] == NORMAL:
+                self.random_tactical_button['background'] = 'burlywood3'
         def off_hover_d(event):
-            random_tactical_button['background'] = 'burlywood4'
+            if self.random_tactical_button['state'] == NORMAL:
+                self.random_tactical_button['background'] = 'burlywood4'
         def on_hover_e(event):
-            random_all_button['background'] = 'orangered3'
+            if self.random_all_button['state'] == NORMAL:
+                self.random_all_button['background'] = 'orangered3'
         def off_hover_e(event):
-            random_all_button['background'] = 'orangered4'
+            if self.random_all_button['state'] == NORMAL:
+                self.random_all_button['background'] = 'orangered4'
             
         # Output Titles
         label_attach = Label(self.mainframe, font=('Fixedsys', 4), text="Use these attachments:", bg='gray21', fg='peach puff')
@@ -136,77 +137,92 @@ class Main:
         label_tactical.grid(row=2, column=2)
 
         # Randomize Attachment Button
-        random_attachment_button = Button(self.buttonframe, bg='burlywood4', fg='#FFFFFF', font=5, text="Randomize Attachments", width=20, height=2, \
+        self.random_attachment_button = Button(self.buttonframe, bg='burlywood4', fg='#FFFFFF', font=5, text="Randomize Attachments", width=20, height=2, \
             command=onclick_attachments, relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
-        random_attachment_button.bind('<Enter>', on_hover_a)
-        random_attachment_button.bind('<Leave>', off_hover_a)
-        random_attachment_button.grid(row=3, column=0, padx=(10, 0))
+        self.random_attachment_button.configure(state=DISABLED)
+        self.random_attachment_button.config({"disabledforeground": "gray63"})
+        self.random_attachment_button.bind('<Enter>', on_hover_a)
+        self.random_attachment_button.bind('<Leave>', off_hover_a)
+        self.random_attachment_button.grid(row=3, column=0, padx=(10, 0))
 
         # Randomize Perk Button
-        random_perk_button = Button(self.buttonframe, font=5, text="Randomize Perks", width=20, height=2, \
+        self.random_perk_button = Button(self.buttonframe, font=5, text="Randomize Perks", width=20, height=2, \
             command=onclick_perks, bg='burlywood4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
-        random_perk_button.bind('<Enter>', on_hover_b)
-        random_perk_button.bind('<Leave>', off_hover_b)
-        random_perk_button.grid(row=4, column=0, padx=(10, 0))
+        self.random_perk_button.configure(state=DISABLED)
+        self.random_perk_button.config({"disabledforeground": "gray63"})
+        self.random_perk_button.bind('<Enter>', on_hover_b)
+        self.random_perk_button.bind('<Leave>', off_hover_b)
+        self.random_perk_button.grid(row=4, column=0, padx=(10, 0))
 
         # Randomize Lethal Button
-        random_lethal_button = Button(self.buttonframe, font=5, text="Randomize Lethal", width=20, height=2, \
+        self.random_lethal_button = Button(self.buttonframe, font=5, text="Randomize Lethal", width=20, height=2, \
             command=onclick_lethals, bg='burlywood4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
-        random_lethal_button.bind('<Enter>', on_hover_c)
-        random_lethal_button.bind('<Leave>', off_hover_c)
-        random_lethal_button.grid(row=5, column=0, padx=(10, 0))
+        self.random_lethal_button.configure(state=DISABLED)
+        self.random_lethal_button.config({"disabledforeground": "gray63"})
+        self.random_lethal_button.bind('<Enter>', on_hover_c)
+        self.random_lethal_button.bind('<Leave>', off_hover_c)
+        self.random_lethal_button.grid(row=5, column=0, padx=(10, 0))
 
         # Randomize Tactical Button
-        random_tactical_button = Button(self.buttonframe, font=5, text="Randomize Tactical", width=20, height=2, \
+        self.random_tactical_button = Button(self.buttonframe, font=5, text="Randomize Tactical", width=20, height=2, \
             command=onclick_tacticals, bg='burlywood4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
-        random_tactical_button.bind('<Enter>', on_hover_d)
-        random_tactical_button.bind('<Leave>', off_hover_d)
-        random_tactical_button.grid(row=6, column=0, padx=(10, 0))
+        self.random_tactical_button.configure(state=DISABLED)
+        self.random_tactical_button.config({"disabledforeground": "gray63"})
+        self.random_tactical_button.bind('<Enter>', on_hover_d)
+        self.random_tactical_button.bind('<Leave>', off_hover_d)
+        self.random_tactical_button.grid(row=6, column=0, padx=(10, 0))
 
         # Randomize All Button
-        random_all_button = Button(self.buttonframe, font=5, text="Randomize All", width=20, height=2, \
+        self.random_all_button = Button(self.buttonframe, font=5, text="Randomize All", width=20, height=2, \
             command=lambda:[onclick_attachments(), onclick_perks(), onclick_lethals(), onclick_tacticals()], \
                 bg='orangered4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='#621b00', activeforeground='#FFFFFF')
-        random_all_button.bind('<Enter>', on_hover_e)
-        random_all_button.bind('<Leave>', off_hover_e)
-        random_all_button.grid(row=7, column=0, padx=(10, 0))
+        self.random_all_button.configure(state=DISABLED)
+        self.random_all_button.config({"disabledforeground": "gray63"})
+        self.random_all_button.bind('<Enter>', on_hover_e)
+        self.random_all_button.bind('<Leave>', off_hover_e)
+        self.random_all_button.grid(row=7, column=0, padx=(10, 0))
 
-    def combotypes(self):
+    def combobox(self):
         """
         Dropdown menu for choosing your weapon tyoe
 
         """
 
-        def callback(event):
-            pass
+        def callback_type(event):
+            Main.destroy_all()
+            update_box = list(gun for gun in weapons[self.select.get()][0])
+            self.guns.config(state='readonly', value=update_box)
+            self.guns.set('----Select Gun----')
+            self.random_attachment_button.configure(state=DISABLED)
+            self.random_perk_button.configure(state=DISABLED)
+            self.random_lethal_button.configure(state=DISABLED)
+            self.random_tactical_button.configure(state=DISABLED)
+            self.random_all_button.configure(state=DISABLED)
+
+        def callback_weapon(event):
+            Main.destroy_all()
+            self.random_attachment_button.configure(state=NORMAL)
+            self.random_perk_button.configure(state=NORMAL)
+            self.random_lethal_button.configure(state=NORMAL)
+            self.random_tactical_button.configure(state=NORMAL)
+            self.random_all_button.configure(state=NORMAL)
 
         self.select = StringVar()
         label = Label(root, font=('Fixedsys', 15), text="Choose the weapon type: ", bg='gray12', fg='peach puff')
         label.grid(row=2, column=0, pady=(0,30))
-        gun_types = ttk.Combobox(root, textvariable=self.select)
-        gun_types['value'] = ['Assault Rifle', 'SMG', 'Shotgun']
-        gun_types.current(0)
-        gun_types.bind("<<ComboboxSelected>>", callback)
-        gun_types.grid(row=2, column=1, pady=(0,30))
-
-    def comboguns(self):
-        """
-        Dropdown menu for choosing your weapon
-
-        """
-
-        def callback(event):
-            Main.destroy_all()
-            event.widget.get()
+        self.gun_types = ttk.Combobox(root, width=21, textvariable=self.select, state='readonly')
+        self.gun_types['value'] = list(item for item in weapons)
+        self.gun_types.set('--Select Weapon Type--')
+        self.gun_types.bind("<<ComboboxSelected>>", callback_type)
+        self.gun_types.grid(row=2, column=1, pady=(0,30))
 
         self.selection = StringVar()
         label = Label(root, font=('Fixedsys', 15), text="Choose your weapon: ", bg='gray12', fg='peach puff')
         label.grid(row=2, column=2, padx=(10, 0), pady=(0,30))
-        guns = ttk.Combobox(root, textvariable=self.selection)
-        guns['value'] = list(gun for gun in weapons)
-        guns.current(0)
-        guns.bind("<<ComboboxSelected>>", callback)
-        guns.grid(row=2, column=3, padx=(0,10), pady=(0,30))
+        self.guns = ttk.Combobox(root, width=15, textvariable=self.selection, state='disabled')
+        self.guns.set('---Unavailable---')
+        self.guns.bind("<<ComboboxSelected>>", callback_weapon)
+        self.guns.grid(row=2, column=3, padx=(0,10), pady=(0,30))
 
 output = Main(root)
 root.mainloop()
