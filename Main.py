@@ -33,6 +33,7 @@ class Main:
         # All of the methods are called here
         self.output_frame()
         self.combobox()
+        self.blink_type_label()
         Main.destroy_all()
     
     @staticmethod
@@ -199,7 +200,7 @@ class Main:
             self.random_lethal_button.configure(state=DISABLED)
             self.random_tactical_button.configure(state=DISABLED)
             self.random_all_button.configure(state=DISABLED)
-            self.blink()
+            self.blink_wep_label()
 
         def callback_weapon(event):
             Main.destroy_all()
@@ -226,24 +227,26 @@ class Main:
         self.guns.bind("<<ComboboxSelected>>", callback_weapon)
         self.guns.grid(row=2, column=3, padx=(0,10), pady=(0,30))
 
-        self.blink()
-
-    def blink(self):
-        wep_bg = self.wep_label.cget("background")
-        wep_fg = self.wep_label.cget("foreground")
-        if self.random_all_button['state'] == NORMAL:
-            self.wep_label.after_cancel(self.blink)
-            self.wep_label.configure(background='gray12', foreground='peach puff')
-        elif self.guns['state'] == READABLE:
-            self.type_label.after_cancel(self.blink)
+    def blink_type_label(self):
+        if self.guns['state'] == READABLE:
+            self.type_label.after_cancel(self.blink_type_label)
             self.type_label.configure(background='gray12', foreground='peach puff')
-            self.wep_label.configure(background=wep_fg, foreground=wep_bg)
-            self.wep_label.after(350, self.blink)
         else:
-            type_bg = self.type_label.cget("background")
-            type_fg = self.type_label.cget("foreground")
-            self.type_label.configure(background=type_fg, foreground=type_bg)
-            self.type_label.after(350, self.blink)
+            bg = self.type_label.cget("background")
+            fg = self.type_label.cget("foreground")
+            self.type_label.configure(background=fg, foreground=bg)
+            self.type_label.after(350, self.blink_type_label)
+
+    def blink_wep_label(self):
+        if self.random_attachment_button['state'] == NORMAL:
+            self.wep_label.after_cancel(self.blink_wep_label)
+            self.wep_label.configure(background='gray12', foreground='peach puff')
+        else:
+            bg = self.wep_label.cget("background")
+            fg = self.wep_label.cget("foreground")
+            self.wep_label.configure(background=fg, foreground=bg)
+            self.wep_label.after(350, self.blink_wep_label)
+
 
 
 Main(root)
