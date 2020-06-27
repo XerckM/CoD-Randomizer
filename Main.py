@@ -197,7 +197,9 @@ class Main:
             self.random_lethal_button.configure(state=DISABLED)
             self.random_tactical_button.configure(state=DISABLED)
             self.random_all_button.configure(state=DISABLED)
-            self.blink_wep_label()
+            if self.do_blink is True:
+                self.blink_wep_label()
+                self.do_blink = False
 
         def callback_weapon(event):
             Main.destroy_all()
@@ -206,7 +208,9 @@ class Main:
             self.random_lethal_button.configure(state=NORMAL)
             self.random_tactical_button.configure(state=NORMAL)
             self.random_all_button.configure(state=NORMAL)
-
+            self.do_blink = True
+        
+        self.do_blink = True
         self.select = StringVar()
         self.type_label = Label(root, font=('Fixedsys', 15), text="Choose the weapon type:", background='gray12', foreground='peach puff')
         self.type_label.grid(row=2, column=0, pady=(0,30))
@@ -235,14 +239,14 @@ class Main:
             self.type_label.after(350, self.blink_type_label)
 
     def blink_wep_label(self):
-        if self.random_attachment_button['state'] == NORMAL:
-            self.wep_label.after_cancel(self.blink_wep_label)
-            self.wep_label.configure(background='gray12', foreground='peach puff')
-        else:
+        if self.random_attachment_button['state'] == DISABLED:
             bg = self.wep_label.cget("background")
             fg = self.wep_label.cget("foreground")
             self.wep_label.configure(background=fg, foreground=bg)
             self.wep_label.after(350, self.blink_wep_label)
+        else:
+            self.wep_label.after_cancel(self.blink_wep_label)
+            self.wep_label.configure(background='gray12', foreground='peach puff')
 
 Main(root)
 root.mainloop()
