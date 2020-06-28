@@ -139,7 +139,6 @@ class Main:
         # Randomize Attachment Button
         self.random_attachment_button = Button(self.buttonframe, bg='burlywood4', fg='#FFFFFF', font=5, text="Randomize Attachments", width=20, height=2, \
             command=onclick_attachments, relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
-        self.random_attachment_button.configure(state=DISABLED)
         self.random_attachment_button.config({"disabledforeground": "gray63"})
         self.random_attachment_button.bind('<Enter>', on_hover_a)
         self.random_attachment_button.bind('<Leave>', off_hover_a)
@@ -148,7 +147,6 @@ class Main:
         # Randomize Perk Button
         self.random_perk_button = Button(self.buttonframe, font=5, text="Randomize Perks", width=20, height=2, \
             command=onclick_perks, bg='burlywood4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
-        self.random_perk_button.configure(state=DISABLED)
         self.random_perk_button.config({"disabledforeground": "gray63"})
         self.random_perk_button.bind('<Enter>', on_hover_b)
         self.random_perk_button.bind('<Leave>', off_hover_b)
@@ -157,7 +155,6 @@ class Main:
         # Randomize Lethal Button
         self.random_lethal_button = Button(self.buttonframe, font=5, text="Randomize Lethal", width=20, height=2, \
             command=onclick_lethals, bg='burlywood4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
-        self.random_lethal_button.configure(state=DISABLED)
         self.random_lethal_button.config({"disabledforeground": "gray63"})
         self.random_lethal_button.bind('<Enter>', on_hover_c)
         self.random_lethal_button.bind('<Leave>', off_hover_c)
@@ -166,7 +163,6 @@ class Main:
         # Randomize Tactical Button
         self.random_tactical_button = Button(self.buttonframe, font=5, text="Randomize Tactical", width=20, height=2, \
             command=onclick_tacticals, bg='burlywood4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='tan4', activeforeground='#FFFFFF')
-        self.random_tactical_button.configure(state=DISABLED)
         self.random_tactical_button.config({"disabledforeground": "gray63"})
         self.random_tactical_button.bind('<Enter>', on_hover_d)
         self.random_tactical_button.bind('<Leave>', off_hover_d)
@@ -176,15 +172,29 @@ class Main:
         self.random_all_button = Button(self.buttonframe, font=5, text="Randomize All", width=20, height=2, \
             command=lambda:[onclick_attachments(), onclick_perks(), onclick_lethals(), onclick_tacticals()], \
                 bg='orangered4', fg='#FFFFFF', relief='flat', highlightthickness= 0, bd=0, activebackground='#621b00', activeforeground='#FFFFFF')
-        self.random_all_button.configure(state=DISABLED)
         self.random_all_button.config({"disabledforeground": "gray63"})
         self.random_all_button.bind('<Enter>', on_hover_e)
         self.random_all_button.bind('<Leave>', off_hover_e)
         self.random_all_button.grid(row=7, column=0, padx=(10, 0))
+        self.disable_buttons()
+    
+    def disable_buttons(self):
+        self.random_attachment_button.configure(state=DISABLED)
+        self.random_perk_button.configure(state=DISABLED)
+        self.random_lethal_button.configure(state=DISABLED)
+        self.random_tactical_button.configure(state=DISABLED)
+        self.random_all_button.configure(state=DISABLED)
+
+    def enable_buttons(self):
+        self.random_attachment_button.configure(state=NORMAL)
+        self.random_perk_button.configure(state=NORMAL)
+        self.random_lethal_button.configure(state=NORMAL)
+        self.random_tactical_button.configure(state=NORMAL)
+        self.random_all_button.configure(state=NORMAL)
 
     def combobox(self):
         """
-        Dropdown menu for choosing your weapon tyoe
+        Creates two comboboxes for selection of gun type and gun
 
         """
         def callback_type(event):
@@ -192,24 +202,15 @@ class Main:
             update_box = list(gun for gun in weapons[self.select.get()][0])
             self.guns.config(state='readonly', value=update_box)
             self.guns.set('----Select Gun----')
-            self.random_attachment_button.configure(state=DISABLED)
-            self.random_perk_button.configure(state=DISABLED)
-            self.random_lethal_button.configure(state=DISABLED)
-            self.random_tactical_button.configure(state=DISABLED)
-            self.random_all_button.configure(state=DISABLED)
+            self.disable_buttons()
             if self.do_blink is True:
                 self.blink_wep_label()
                 self.do_blink = False
                 self.no_blink = True
 
-
         def callback_weapon(event):
             Main.destroy_all()
-            self.random_attachment_button.configure(state=NORMAL)
-            self.random_perk_button.configure(state=NORMAL)
-            self.random_lethal_button.configure(state=NORMAL)
-            self.random_tactical_button.configure(state=NORMAL)
-            self.random_all_button.configure(state=NORMAL)
+            self.enable_buttons()
             self.do_blink = True
         
         self.do_blink = True
