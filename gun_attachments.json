@@ -1,6 +1,221 @@
 {
     "Assault Rifles":[
         { 
+            "Kilo 141":[
+                {
+                    "Muzzle":[
+                        "",
+                        "Flash Guard",
+                        "Tactical Suppressor",
+                        "Breacher Device",
+                        "Muzzle Brake",
+                        "Lightweight Suppressor",
+                        "Compensator",
+                        "Monolithic Suppressor"
+                    ],
+
+                    "Barrel":[
+                        "",
+                        "Singuard Arms 16.6 SOCOM",
+                        "Singuard Arms 19.8 Prowler",
+                        "Singuard Arms Whisper"
+                    ],
+
+                    "Laser":[
+                        "",
+                        "1mW Laser",
+                        "5mW Laser",
+                        "Tac Laser"
+                    ],
+
+                    "Optic":[
+                        "",
+                        "Operator Reflex Sight",
+                        "Corp Combat Holo Sight",
+                        "Aim-Op Reflex Sight",
+                        "G.I. Mini Refle",
+                        "Scout Combat Optic",
+                        "APX5 Holographic Sight",
+                        "Cronen LP945 Mini Reflex",
+                        "4.0 Flip Hybrid",
+                        "VLK 3.0x Optic",
+                        "Integral Hybrid",
+                        "Viper Reflex Sight",
+                        "Cronen C480 Pro Optic",
+                        "Solozero NVG Enhanced",
+                        "Monocle Reflex Sight",
+                        "Sniper Scope",
+                        "Merc Thermal Optic",
+                        "PBX Holo 7 Sight",
+                        "Thermal Hybrid",
+                        "Solozero Optics Mini Reflex",
+                        "Canted Hybrid",
+                        "Variable Zoom Scope"
+                    ],
+
+                    "Stock":[
+                        "",
+                        "FORGE TAC Ultralight",
+                        "Singuard Arms Sniper Pro",
+                        "No Stock",
+                        "FSS Close Quarters Stock"
+                    ],
+
+                    "Rear Grip":[
+                        "",
+                        "Granulated Grip Tape",
+                        "Rubberized Grip Tape",
+                        "Stippled Grip Tape"
+                    ],
+
+                    "Ammunition":[
+                        "",
+                        "50 Round Mags",
+                        "60 Round Mags",
+                        "100 Round Drums"
+                    ],
+
+                    "Underbarrel":[
+                        "",
+                        "Commando Foregrip",
+                        "M203 40mm Concussive",
+                        "Merc Foregrip",
+                        "M203 40mm Smokescreen",
+                        "12 Gauge Deputy",
+                        "M203 40mm Recon",
+                        "M203 40mm High-explosive",
+                        "M203 40mm Flash",
+                        "Tactical Foregrip",
+                        "M203 40mm Incendiary",
+                        "Operator Foregrip",
+                        "Ranger Foregrip",
+                        "Bipod"
+                    ],
+
+                    "Perks":[
+                        "",
+                        "FMJ",
+                        "Heavy Hitter",
+                        "Recon",
+                        "Frangible - Wounding",
+                        "Mo' Money",
+                        "Fully Loaded",
+                        "Sleight of Hand",
+                        "Fast Melee",
+                        "Burst",
+                        "Frangible - Disabling",
+                        "Presence of Mind"
+
+                    ]
+                }
+            ],
+
+            "FAL":[
+                {
+                    "Muzzle":[
+                        "",
+                        "Muzzle Brake",
+                        "Flash Guard",
+                        "Tactical Suppressor",
+                        "Lightweight Suppressor",
+                        "Compensator",
+                        "Monolithic Suppressor"
+                    ],
+
+                    "Barrel":[
+                        "",
+                        "18.0 Ultralight",
+                        "XRK Marksman",
+                        "13.0 OSW Para"
+                    ],
+
+                    "Laser":[
+                        "",
+                        "5mW Laser",
+                        "1mW Laser",
+                        "Tac Laser"
+                    ],
+                        
+                    "Optic":[
+                        "",
+                        "G.I. Mini Reflex",
+                        "Aim-Op Reflex Sight",
+                        "Corp Combat Holo Sight",
+                        "Scout Combat Optic",
+                        "APX5 Holographic Sight",
+                        "4.0 Flip Hybrid",
+                        "Solozero Optics Mini Reflex",
+                        "VLK 3.0x Optic",
+                        "Operator Reflex Sight",
+                        "Sniper Scope",
+                        "Solozero NVG Enhanced",
+                        "Integral Hybrid",
+                        "Viper Reflex Sight",
+                        "PBX Holo 7 Sight",
+                        "Monocle Reflex Sight",
+                        "Canted Hybrid",
+                        "Variable Zoom Scope",
+                        "Cronen C480 Pro Optic",
+                        "Cronen LP945 Mini Reflex",
+                        "Merc Thermal Optic",
+                        "Thermal Hybrid"
+                    ],
+
+                    "Stock":[
+                        "",
+                        "Factory 18' Aluminum Stock",
+                        "No Stock",
+                        "FSS Close Quarters Stock",
+                        "FORGE TAC Stalker"
+                    ],
+
+                    "Rear Grip":[
+                        "",
+                        "Granulated Grip Tape",
+                        "Stippled Grip Tape",
+                        "Rubberized Grip Tape"
+                    ],
+
+                    "Ammunition":[
+                        "",
+                        "24 Round Mags",
+                        "30 Round Mags"
+                    ],
+                    
+                    "Underbarrel":[
+                        "",
+                        "Commando Foregrip",
+                        "Merc Foregrip",
+                        "12 Gauge Deputy",
+                        "Bipod",
+                        "M203 40mm Recon",
+                        "M203 40mm High-explosive",
+                        "Ranger Foregrip",
+                        "M203 40mm Flash",
+                        "M203 40mm Smokescreen",
+                        "Tactical Foregrip",
+                        "M203 40mm Incendiary",
+                        "M203 40mm Concussive",
+                        "Operator Foregrip"
+                    ],
+                    
+                    "Perks":[
+                        "",
+                        "Heavy Hitter",
+                        "Recon",
+                        "Frangible - Wounding",
+                        "FMJ",
+                        "Sleight of Hand",
+                        "Fast Melee",
+                        "Frangible - Disabling",
+                        "Fully Loaded",
+                        "Burst",
+                        "Mo' Money",
+                        "Presence of Mind"
+                    ]
+                }
+            ],
+
             "M4A1": [
                 {
                     "Muzzle": [
@@ -110,6 +325,110 @@
                     ]
                 }
             ],
+
+            "FR 5.56":[
+                {
+                    "Muzzle":[
+                        "",
+                        "Flash Guard",
+                        "Muzzle Brake",
+                        "Tactical Suppressor",
+                        "Compensator",
+                        "Lightweight Suppressor",
+                        "Monolithic Suppressor"
+                    ],
+                       
+                    "Barrel":[
+                        "",
+                        "FR 15.9' Commando",
+                        "FR 24.4' Sniper",
+                        "FORGE TAC Ultralight"
+                    ],
+                    
+                    "Laser":[
+                        "",
+                        "1mW Laser",
+                        "5mW Laser",
+                        "Tac Laser"
+                    ],
+                    "Optic":[
+                        "",
+                        "Operator Reflex Sight",
+                        "Corp Combat Holo Sight",
+                        "Aim-Op Reflex Sight",
+                        "Scout Combat Optic",
+                        "APX5 Holographic Sight",
+                        "Integral Hybrid",
+                        "Solozero Optics Mini Reflex",
+                        "VLK 3.0x Optic",
+                        "4.0 Flip Hybrid",
+                        "Viper Reflex Sight",
+                        "PBX Holo 7 Sight",
+                        "Solozero NVG Enhanced",
+                        "Sniper Scope",
+                        "Cronen LP945 Mini Reflex",
+                        "Monocle Reflex Sight",
+                        "Cronen C480 Pro Optic",
+                        "G.I. Mini Reflex",
+                        "Variable Zoom Scope",
+                        "Thermal Hybrid",
+                        "Merc Thermal Optic",
+                        "Canted Hybrid"
+                    ],
+                    
+                    "Stock":[
+                        "",
+                        "FR Ultralight Hollow",
+                        "FORGE TAC Ballast Pack",
+                        "FSS Tac-Wrap"
+                    ],
+                    
+                    "Rear Grip":[
+                        "",
+                        "Stippled Grip Tape",
+                        "Granulated Grip Tape",
+                        "Rubberized Grip Tape"
+                    ],
+                    
+                    "Ammunition":[
+                        "",
+                        "50 Round Mags",
+                        "60 Round Mags"
+                    ],
+                    
+                    "Underbarrel":[
+                        "",
+                        "Commando Foregrip",
+                        "M203 40mm Smokescreen",
+                        "M203 40mm Incendiary",
+                        "Merc Foregrip",
+                        "M203 40mm High-explosive",
+                        "M203 40mm Concussive",
+                        "Tactical Foregrip",
+                        "Bipod",
+                        "M203 40mm Flash",
+                        "12 Gauge Deputy",
+                        "Operator Foregrip",
+                        "M203 40mm Recon",
+                        "Ranger Foregrip"
+                    ],
+                    
+                    "Perks":[
+                        "",
+                        "Recon",
+                        "Heavy Hitter",
+                        "Frangible - Wounding",
+                        "Fully Loaded",
+                        "Fast Melee",
+                        "Mo' Money",
+                        "FMJ",
+                        "Sleight of Hand",
+                        "Frangible - Disabling",
+                        "Presence of Mind"
+                    ]
+                }
+            ],
+            
             "M13": [
                 {
                     "Muzzle": [
