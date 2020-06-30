@@ -12,8 +12,8 @@ class Randomizer:
     def a_randomize(self):
         with open('gun_attachments.json') as w:
             weapons = json.load(w)
-        with open('nomuzzle.txt', 'r') as nm:
-            barrel_no_muzzle = list(i for i in nm)
+        with open('blocker.txt', 'r') as nm:
+            barrel_no_muzzle = list(item for item in nm)
         att_types = list(item for item in weapons[self.guntype][0][self.weapon][0])
         rand_att_types = random.sample(att_types, 5)
         first = random.choice(list(item for item in weapons[self.guntype][0][self.weapon][0][rand_att_types[0]]))
@@ -25,9 +25,8 @@ class Randomizer:
         rand_picks[:] = [item for item in rand_picks if item != '']
         is_barrel_no_muzzle = any(item in barrel_no_muzzle for item in rand_picks)
         is_muzzle_in_picks = any(item in rand_picks for item in weapons[self.guntype][0][self.weapon][0]['Muzzle'])
-        if is_barrel_no_muzzle is True:
-            if is_muzzle_in_picks is True:
-                return self.a_randomize()
+        if is_barrel_no_muzzle and is_muzzle_in_picks and True:
+            return self.a_randomize()
         return '\n'.join(rand_picks)
 
     def p_randomize(self):
