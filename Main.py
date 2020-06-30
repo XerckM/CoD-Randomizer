@@ -233,6 +233,9 @@ class Main:
         self.guns.grid(row=2, column=3, padx=(0,10), pady=(0,30))
 
     def blink_type_label(self):
+        """
+        This method adds a blinking effect to weapon type label as a prompt to user
+        """
         if self.no_blink is True:
             self.type_label.after_cancel(self.blink_type_label)
             self.type_label.configure(background='gray12', foreground='peach puff')
@@ -243,6 +246,9 @@ class Main:
             self.type_label.after(350, self.blink_type_label)
 
     def blink_wep_label(self):
+        """
+        This method adds a blinking effect to weapon label as a prompt to user
+        """
         if self.random_all_button['state'] == DISABLED:
             bg = self.wep_label.cget("background")
             fg = self.wep_label.cget("foreground")
