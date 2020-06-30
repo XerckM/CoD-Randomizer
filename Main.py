@@ -55,7 +55,7 @@ class Main:
         This is the output frame where all the buttons are placed as well as the
         settings for their output
 
-        This is also where the buttons are placed and the command methods that
+        This is also where the command methods that
         are being called so they all are in the same function
         """
         self.mainframe = LabelFrame(root, width=385, height=230, bg='gray21', relief='solid')
