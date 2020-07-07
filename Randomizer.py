@@ -34,7 +34,7 @@ class Randomizer:
         with open('perks.json') as p:
             perks = json.load(p)
         perk_colors = list(color for color in perks[self.perk][0])
-        rand_perk = random.choice(perks[self.perk][0][perk_colors[color]] for color in range(len(perk_colors)))
+        rand_perk = list(random.choice(perks[self.perk][0][perk_colors[color]]) for color in range(len(perk_colors)))
         return '\n'.join(rand_perk)
 
     def l_randomize(self):
