@@ -14,15 +14,16 @@ class Randomizer:
             weapons = json.load(w)
         with open('blocker.txt', 'r') as nm:
             barrel_no_muzzle = list(item for item in nm)
+        
+        # Get 5 randomized values of attachment types
         att_types = list(item for item in weapons[self.guntype][0][self.weapon][0])
         rand_att_types = random.sample(att_types, 5)
-        first = random.choice(list(item for item in weapons[self.guntype][0][self.weapon][0][rand_att_types[0]]))
-        second = random.choice(list(item for item in weapons[self.guntype][0][self.weapon][0][rand_att_types[1]]))
-        third = random.choice(list(item for item in weapons[self.guntype][0][self.weapon][0][rand_att_types[2]]))
-        fourth = random.choice(list(item for item in weapons[self.guntype][0][self.weapon][0][rand_att_types[3]]))
-        fifth = random.choice(list(item for item in weapons[self.guntype][0][self.weapon][0][rand_att_types[4]]))
-        rand_picks = [first, second, third, fourth, fifth]
+
+        # Get a random value for each attachment type and place it in a list
+        rand_picks = list(random.choice(weapons[self.guntype][0][self.weapon][0][rand_att_types[item]]) for item in range(len(rand_att_types)))
         rand_picks[:] = [item for item in rand_picks if item != '']
+
+        # Get values from each item that are not compatible with certain attachment type if present then recurse function
         is_barrel_no_muzzle = any(item in barrel_no_muzzle for item in rand_picks)
         is_muzzle_in_picks = any(item in rand_picks for item in weapons[self.guntype][0][self.weapon][0]['Muzzle'])
         if is_barrel_no_muzzle and is_muzzle_in_picks and True:
@@ -32,10 +33,9 @@ class Randomizer:
     def p_randomize(self):
         with open('perks.json') as p:
             perks = json.load(p)
-        first_perk = random.choice(list(perk for perk in perks[self.perk][0]['Blue']))
-        second_perk = random.choice(list(perk for perk in perks[self.perk][0]['Red']))
-        third_perk = random.choice(list(perk for perk in perks[self.perk][0]['Yellow']))
-        return 'Blue Perk: ' + first_perk + '\n' + 'Red Perk: ' + second_perk + '\n' + 'Yellow Perk: ' + third_perk
+        perk_colors = list(color for color in perks[self.perk][0])
+        rand_perk = random.choice(perks[self.perk][0][perk_colors[color]] for color in range(len(perk_colors)))
+        return '\n'.join(rand_perk)
 
     def l_randomize(self):
         with open('lethals.json') as l:
